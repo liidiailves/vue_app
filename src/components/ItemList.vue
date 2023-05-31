@@ -35,8 +35,7 @@
           <ul class="mask-list complete-list">
             <li
               v-for="(mask, index) in completeList"
-              :key="mask.id"
-            >
+              :key="mask.id">
               <div>
                 <input type="checkbox" v-on:change="doCheck(index, 'complete')"  checked>
                 <span>{{ mask.title }}</span>
@@ -65,11 +64,11 @@ export default {
           if(this.valueInput === '') { return };
           this.needDoList.push({
             title: this.valueInput,
+            id: Math.random()
           });
           this.valueInput = '';
         },
         doCheck (index, type) {
-    
           if(type === 'need') {
             const completeMask = this.needDoList.splice(index, 1);
             this.completeList.push(...completeMask);
